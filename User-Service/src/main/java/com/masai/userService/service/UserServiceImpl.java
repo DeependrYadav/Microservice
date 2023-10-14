@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.masai.userService.entities.User;
-import com.masai.userService.exception.ResourseNotFoundException;
+import com.masai.userService.exception.ResourceNotFoundException;
 import com.masai.userService.repository.UserRepository;
 
 @Service
@@ -30,7 +30,7 @@ public class UserServiceImpl implements UserService{
 	// Finding user by ID
 	@Override
 	public User getUserByID(Integer ID) {
-		return userRepository.findById(ID).orElseThrow(()-> new ResourseNotFoundException("User with given ID not found in server"));
+		return userRepository.findById(ID).orElseThrow(()-> new ResourceNotFoundException("User with given ID not found in server : "+ID));
 	}
 
 }
