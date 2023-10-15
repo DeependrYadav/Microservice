@@ -1,6 +1,7 @@
 package com.masai.HotelService.service;
 
 import java.util.List;
+import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,6 +19,8 @@ public class HotelServiceImpl implements HotelService{
 	
 	@Override
 	public Hotel createHotel(Hotel hotel) {
+		String hotelId = UUID.randomUUID().toString();
+		hotel.setHotelId(hotelId);
 		return hotelRepository.save(hotel);
 	}
 

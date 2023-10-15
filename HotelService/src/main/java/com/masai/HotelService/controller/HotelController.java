@@ -32,14 +32,14 @@ public class HotelController {
 	// get single hotel
 	@GetMapping("/{hotelId}")
 	public ResponseEntity<Hotel> getSingleHotel(@PathVariable String hotelId){
-		return ResponseEntity.status(HttpStatus.CREATED).body(hotelService.getHotelById(hotelId));
+		return ResponseEntity.status(HttpStatus.OK).body(hotelService.getHotelById(hotelId));
 	}
 	
 	
 	// get all hotel
 	@GetMapping
 	public ResponseEntity<List<Hotel>> getAllHotel(){
-		return ResponseEntity.status(HttpStatus.CREATED).body(hotelService.getAllHotel());
+		return ResponseEntity.status(HttpStatus.OK).body(hotelService.getAllHotel());
 	}
 	
 }
