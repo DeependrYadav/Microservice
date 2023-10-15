@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.masai.HotelService.entites.Hotel;
+import com.masai.HotelService.exception.ResourceNotFoundException;
 import com.masai.HotelService.repository.HotelRepository;
 
 @Service
@@ -28,7 +29,7 @@ public class HotelServiceImpl implements HotelService{
 	@Override
 	public Hotel getHotelById(String Id) {
 		
-		return hotelRepository.findById(Id).orElseThrow();
+		return hotelRepository.findById(Id).orElseThrow(()-> new ResourceNotFoundException("Hotel with give ID not found :"+Id));
 	}
 
 }
