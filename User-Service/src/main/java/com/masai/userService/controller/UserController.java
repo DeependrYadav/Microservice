@@ -23,18 +23,21 @@ public class UserController {
 	private UserService userService;
 	
 	// Create user
+	
 	@PostMapping
 	public ResponseEntity<User> createUser(@RequestBody User user){
 		return new ResponseEntity<User>(userService.saveUser(user),HttpStatus.CREATED);
 	}
 	
 	// Get single User
+	
 	@GetMapping("/{userId}")
-	public ResponseEntity<User> getSingleUser(@PathVariable Integer userId){
+	public ResponseEntity<User> getSingleUser(@PathVariable String userId){
 		return new ResponseEntity<User>(userService.getUserByID(userId),HttpStatus.OK);
 	}
 	
 	// Get all users
+	
 	@GetMapping
 	public ResponseEntity<List<User>> getAllUser(){
 		return new ResponseEntity<List<User>>(userService.getAllUser(),HttpStatus.OK);
