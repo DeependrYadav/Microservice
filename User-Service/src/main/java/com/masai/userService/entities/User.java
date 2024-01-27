@@ -3,18 +3,16 @@ package com.masai.userService.entities;
 import java.util.ArrayList;
 import java.util.List;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Transient;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Entity
+@Document("users")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -30,7 +28,7 @@ public class User {
 	private String email;
 	
 	private String about;
-	
-	@Transient
+
+
 	private List<Rating> ratings = new ArrayList<>();
 }
